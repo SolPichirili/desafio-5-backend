@@ -7,9 +7,9 @@ const productsContenedor = new Contenedor('./data/products.json');
 
 routerProducts.post('/', async (req, res) => {
     const newProduct = req.body;
-    if(newProduct.title === '' || newProduct.price === '' || newProduct.thumbnail === ''){
+    if (newProduct.title === '' || newProduct.price === '' || newProduct.thumbnail === '') {
         res.render('./pages/products-list.ejs', {
-            nuevo: newProduct
+            nuevo: newProduct,
         });
     } else {
         await productsContenedor.save(newProduct);

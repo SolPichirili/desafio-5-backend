@@ -21,7 +21,7 @@
                 margin-top: 1rem;
             }
 
-            img{
+            img {
                 height: 50%;
                 width: 50%;
             }
@@ -38,34 +38,34 @@
 
 <body>
     <div class="container">
-        <% if(nuevo.title === '' || nuevo.price === '' || nuevo.thumbnail === ''){ %>
+        <% if(nuevo.title==='' || nuevo.price==='' || nuevo.thumbnail==='' || productos.length===0 ){ %>
             <h1>No hay productos.</h1>
-        <% } else { %>
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th scope="col">Nombre</th>
-                        <th scope="col">Precio</th>
-                        <th scope="col">Foto</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <% productos.forEach((e)=>{ %>
+            <% } else { %>
+                <table class="table table-bordered">
+                    <thead>
                         <tr>
-                            <td>
-                                <%= e.title %>
-                            </td>
-                            <td>
-                                <%= e.price %>
-                            </td>
-                            <td>
-                                <img class="img-fluid" alt="imagen-comida" src=<%= e.thumbnail %>>
-                            </td>
+                            <th scope="col">Nombre</th>
+                            <th scope="col">Precio</th>
+                            <th scope="col">Foto</th>
                         </tr>
-                        <%}); %>
-                </tbody>
-            </table>
-        <% } %>
+                    </thead>
+                    <tbody>
+                        <% productos.forEach((e)=>{ %>
+                            <tr>
+                                <td>
+                                    <%= e.title %>
+                                </td>
+                                <td>
+                                    <%= e.price %>
+                                </td>
+                                <td>
+                                    <img class="img-fluid" alt="imagen-comida" src=<%=e.thumbnail %>>
+                                </td>
+                            </tr>
+                            <%}); %>
+                    </tbody>
+                </table>
+                <% } %>
     </div>
     <div class="container direct">
         <button type="button" class="btn btn-primary"><a href="/form" class="link">Ir al Formulario</a></button>
