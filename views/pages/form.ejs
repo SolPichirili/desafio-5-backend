@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head.ejs'); %>
+        <style>
+            form {
+                margin-top: 1rem;
+            }
+
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            a:hover{
+                color: white;
+            }
+
+            .direct{
+                display: flex;
+                justify-content: end;
+            }
+        </style>
+
+        <title>Formulario</title>
+</head>
+
+<body>
+    <form method="POST" action="/productos" class="container">
+        <div class="mb-3">
+            <label class="form-label"> Nombre del Producto </label>
+            <input name="title" type="text" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label"> Precio </label>
+            <input name="price" type="number" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label class="form-label"> URL de imagen </label>
+            <input name="thumbnail" type="url" class="form-control">
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+    <div class="container direct">
+        <button type="button" class="btn btn-primary"><a href="/productos/list-productos" class="link">Ir a
+            Productos</a></button>
+    </div>
+</body>
+
+</html>

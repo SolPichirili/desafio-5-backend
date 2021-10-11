@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <%- include('../partials/head.ejs'); %>
+        <style>
+            a {
+                color: white;
+                text-decoration: none;
+            }
+
+            a:hover {
+                color: white;
+            }
+
+            h1 {
+                margin-top: 1rem;
+            }
+
+            table {
+                margin-top: 1rem;
+            }
+
+            img{
+                height: 50%;
+                width: 50%;
+            }
+
+            .direct {
+                display: flex;
+                justify-content: end;
+                margin-bottom: 1rem;
+            }
+        </style>
+
+        <title>Lista de Productos</title>
+</head>
+
+<body>
+    <div class="container">
+        <% if(nuevo.title === '' || nuevo.price === '' || nuevo.thumbnail === ''){ %>
+            <h1>No hay productos.</h1>
+        <% } else { %>
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Foto</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% productos.forEach((e)=>{ %>
+                        <tr>
+                            <td>
+                                <%= e.title %>
+                            </td>
+                            <td>
+                                <%= e.price %>
+                            </td>
+                            <td>
+                                <img class="img-fluid" alt="imagen-comida" src=<%= e.thumbnail %>>
+                            </td>
+                        </tr>
+                        <%}); %>
+                </tbody>
+            </table>
+        <% } %>
+    </div>
+    <div class="container direct">
+        <button type="button" class="btn btn-primary"><a href="/form" class="link">Ir al Formulario</a></button>
+    </div>
+</body>
+
+</html>
